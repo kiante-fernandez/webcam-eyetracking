@@ -1,0 +1,46 @@
+{
+  "id": "gorilla",
+  "name": "Gorilla",
+  "slug": "gorilla",
+  "tagline": "Online experiment builder for behavioral researchers with WebGazer integration",
+  "short_impression": "Gorilla is a widely-adopted online experiment platform in cognitive neuroscience and psychology research. It offers an intuitive experiment builder with WebGazer eye tracking integration as a control component, allowing researchers to conduct remote studies with sophisticated experimental designs. The platform is known for its timing precision, extensive task templates, and robust participant management system.",
+  "pros": [
+    "Widely used in academic research (high credibility)",
+    "Excellent timing precision for cognitive experiments",
+    "Large library of validated task templates",
+    "Active user community and support forums",
+    "Integrated participant recruitment through Prolific"
+  ],
+  "cons": [
+    "Subscription-based pricing (can be expensive for small labs)",
+    "Eye tracking is an add-on feature (not included in basic plan)",
+    "Primarily designed for cognitive/behavioral research paradigms",
+    "Webcam tracking accuracy varies with participant hardware"
+  ],
+  "homepage": "https://gorilla.sc/",
+  "demo": "https://gorilla.sc/presents/eye-tracking-webcam",
+  "docs": "https://gorilla.sc/support/reference/eye-tracking-webcam",
+  "papers": [
+    {
+      "title": "Gorilla in our midst: An online behavioral experiment builder",
+      "authors": "Anwyl-Irvine, A. L., Massonnié, J., Flitton, A., Kirkham, N., & Evershed, J. K.",
+      "year": 2020,
+      "doi": "10.3758/s13428-019-01237-x"
+    }
+  ],
+  "license": "Commercial",
+  "primary_language": "JavaScript",
+  "platform_support": ["Chrome", "Firefox", "Edge"],
+  "features": {
+    "gaze": true,
+    "fixation": true,
+    "heatmap": false,
+    "blink_detection": false
+  },
+  "calibration": "required",
+  "claimed_accuracy": "Approximately 1-3 degrees (claimed - vendor documentation; varies by setup)",
+  "privacy_notes": "Data stored on Gorilla cloud infrastructure. GDPR compliant. Institutional data processing agreements available.",
+  "tags": ["commercial", "research", "experiments", "browser", "cognitive-science"],
+  "last_verified": "2025-12-08",
+  "verified_by": "Compendium team"
+}

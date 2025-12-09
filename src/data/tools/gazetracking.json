@@ -1,0 +1,42 @@
+{
+  "id": "gazetracking",
+  "name": "GazeTracking",
+  "slug": "gazetracking",
+  "tagline": "Lightweight Python library for real-time gaze tracking",
+  "short_impression": "GazeTracking is a minimalist Python library built on OpenCV that provides simple gaze direction detection (left, right, center) and eye state tracking (open/closed). While not designed for precise coordinate tracking like research-grade systems, it offers an accessible entry point for developers needing basic eye tracking functionality in desktop applications.",
+  "pros": [
+    "Simple API - only a few lines of code to get started",
+    "Minimal dependencies (OpenCV, NumPy)",
+    "Lightweight and fast for basic gaze direction",
+    "Good documentation with examples",
+    "Works offline without cloud services"
+  ],
+  "cons": [
+    "Limited to directional gaze (left/right/center), not precise coordinates",
+    "No built-in calibration system",
+    "Requires good lighting conditions",
+    "Not suitable for detailed fixation analysis"
+  ],
+  "repo": "https://github.com/antoinelame/GazeTracking",
+  "docs": "https://github.com/antoinelame/GazeTracking#readme",
+  "papers": [],
+  "license": "MIT",
+  "primary_language": "Python",
+  "platform_support": ["Desktop"],
+  "features": {
+    "gaze": true,
+    "fixation": false,
+    "heatmap": false,
+    "blink_detection": true
+  },
+  "calibration": "optional",
+  "claimed_accuracy": "Directional only (left, right, center) - not coordinate-based",
+  "privacy_notes": "All processing occurs locally. No network requests or data transmission.",
+  "example_snippet": "from gaze_tracking import GazeTracking\nimport cv2\n\ngaze = GazeTracking()\nwebcam = cv2.VideoCapture(0)\n\nwhile True:\n    _, frame = webcam.read()\n    gaze.refresh(frame)\n    \n    if gaze.is_blinking():\n        print(\"Blinking\")\n    elif gaze.is_right():\n        print(\"Looking right\")\n    elif gaze.is_left():\n        print(\"Looking left\")",
+  "tags": ["open-source", "python", "beginner-friendly"],
+  "last_verified": "2025-12-08",
+  "verified_by": "Compendium team",
+  "metadata": {
+    "github_stars": 2500
+  }
+}

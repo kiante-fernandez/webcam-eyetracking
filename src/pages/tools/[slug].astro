@@ -1,0 +1,196 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import Badge from '../../components/common/Badge.astro';
+import { getAllTools, getToolBySlug } from '../../data';
+import type { Tool } from '../../types/tool';
+
+export async function getStaticPaths() {
+  const tools = getAllTools();
+  return tools.map((tool) => ({
+    params: { slug: tool.slug },
+    props: { tool },
+  }));
+}
+
+interface Props {
+  tool: Tool;
+}
+
+const { tool } = Astro.props;
+
+const licenseVariant = tool.license.includes('MIT') || tool.license.includes('Apache') || tool.license.includes('BSD')
+  ? 'success'
+  : tool.license === 'GPL-3.0'
+  ? 'info'
+  : 'warning';
+---
+
+<Layout title={`${tool.name} | Webcam Eye-Tracking Compendium`} description={tool.tagline}>
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="mb-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">{tool.name}</h1>
+        <p class="text-xl text-gray-600 mb-6">{tool.tagline}</p>
+        <div class="flex flex-wrap gap-2">
+          <Badge text={tool.license} variant={licenseVariant} />
+          <Badge text={tool.primary_language} variant="gray" />
+          {tool.calibration === 'none' && <Badge text="No calibration" variant="success" />}
+          {tool.tags.includes('featured') && <Badge text="Featured" variant="primary" />}
+          {tool.metadata?.github_stars && (
+            <Badge text={`${tool.metadata.github_stars.toLocaleString()} stars`} variant="info" />
+          )}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <section class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Overview</h2>
+            <p class="text-gray-700 leading-relaxed">{tool.short_impression}</p>
+          </section>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            {tool.pros.length > 0 && (
+              <section>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Pros</h3>
+                <ul class="space-y-2">
+                  {tool.pros.map((pro) => (
+                    <li class="flex items-start">
+                      <svg class="w-5 h-5 mr-2 mt-0.5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="text-gray-700">{pro}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {tool.cons.length > 0 && (
+              <section>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Cons</h3>
+                <ul class="space-y-2">
+                  {tool.cons.map((con) => (
+                    <li class="flex items-start">
+                      <svg class="w-5 h-5 mr-2 mt-0.5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="text-gray-700">{con}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+          </div>
+
+          {tool.example_snippet && (
+            <section class="mb-8">
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">Code Example</h3>
+              <pre class="bg-gray-50 p-4 rounded-lg overflow-x-auto"><code>{tool.example_snippet}</code></pre>
+            </section>
+          )}
+
+          {tool.papers.length > 0 && (
+            <section class="mb-8">
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">Academic Papers</h3>
+              <ul class="space-y-3">
+                {tool.papers.map((paper) => (
+                  <li class="bg-gray-50 p-4 rounded">
+                    <p class="font-medium text-gray-900">{paper.title}</p>
+                    <p class="text-sm text-gray-600 mt-1">{paper.authors} ({paper.year})</p>
+                    {paper.doi && (
+                      <a href={`https://doi.org/${paper.doi}`} class="text-sm text-primary-600 hover:text-primary-700 mt-1 inline-block" target="_blank" rel="noopener noreferrer">
+                        DOI: {paper.doi}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {tool.privacy_notes && (
+            <section class="mb-8">
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">Privacy & Data Handling</h3>
+              <p class="text-gray-700">{tool.privacy_notes}</p>
+            </section>
+          )}
+        </div>
+
+        <div class="lg:col-span-1">
+          <div class="bg-gray-50 p-6 rounded-lg sticky top-20">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Details</h3>
+
+            <dl class="space-y-4">
+              <div>
+                <dt class="text-sm font-medium text-gray-500">License</dt>
+                <dd class="mt-1 text-sm text-gray-900">{tool.license}</dd>
+              </div>
+
+              <div>
+                <dt class="text-sm font-medium text-gray-500">Primary Language</dt>
+                <dd class="mt-1 text-sm text-gray-900">{tool.primary_language}</dd>
+              </div>
+
+              <div>
+                <dt class="text-sm font-medium text-gray-500">Platforms</dt>
+                <dd class="mt-1 text-sm text-gray-900">{tool.platform_support.join(', ')}</dd>
+              </div>
+
+              <div>
+                <dt class="text-sm font-medium text-gray-500">Calibration</dt>
+                <dd class="mt-1 text-sm text-gray-900 capitalize">{tool.calibration}</dd>
+              </div>
+
+              {tool.claimed_accuracy && (
+                <div>
+                  <dt class="text-sm font-medium text-gray-500">Claimed Accuracy</dt>
+                  <dd class="mt-1 text-sm text-gray-900">{tool.claimed_accuracy}</dd>
+                </div>
+              )}
+
+              <div>
+                <dt class="text-sm font-medium text-gray-500">Features</dt>
+                <dd class="mt-1 space-y-1">
+                  {tool.features.gaze && <span class="block text-sm text-gray-900">✓ Gaze tracking</span>}
+                  {tool.features.fixation && <span class="block text-sm text-gray-900">✓ Fixation detection</span>}
+                  {tool.features.heatmap && <span class="block text-sm text-gray-900">✓ Heatmap generation</span>}
+                  {tool.features.blink_detection && <span class="block text-sm text-gray-900">✓ Blink detection</span>}
+                </dd>
+              </div>
+
+              <div>
+                <dt class="text-sm font-medium text-gray-500">Last Verified</dt>
+                <dd class="mt-1 text-sm text-gray-900">{tool.last_verified}</dd>
+                <dd class="text-xs text-gray-500">by {tool.verified_by}</dd>
+              </div>
+            </dl>
+
+            <div class="mt-6 space-y-3">
+              {tool.homepage && (
+                <a href={tool.homepage} class="block w-full btn btn-primary text-center" target="_blank" rel="noopener noreferrer">
+                  Visit Website
+                </a>
+              )}
+              {tool.repo && (
+                <a href={tool.repo} class="block w-full btn btn-secondary text-center" target="_blank" rel="noopener noreferrer">
+                  View Repository
+                </a>
+              )}
+              {tool.demo && (
+                <a href={tool.demo} class="block w-full btn btn-secondary text-center" target="_blank" rel="noopener noreferrer">
+                  Try Demo
+                </a>
+              )}
+              {tool.docs && (
+                <a href={tool.docs} class="block w-full btn btn-secondary text-center" target="_blank" rel="noopener noreferrer">
+                  Documentation
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,38 @@
+{
+  "id": "sticky",
+  "name": "Sticky (Tobii)",
+  "slug": "sticky",
+  "tagline": "Tobii's webcam eye tracking for consumer insights",
+  "short_impression": "Sticky is Tobii's cloud-based webcam eye tracking solution designed for consumer and market research. Leveraging Tobii's decades of eye tracking expertise, Sticky brings professional-grade analysis tools to webcam-based studies. The platform is targeted at marketing teams, UX researchers, and agencies conducting remote user research with attention metrics, heatmaps, and engagement analytics.",
+  "pros": [
+    "Backed by Tobii's eye tracking expertise and validation",
+    "Professional reporting and visualization tools",
+    "Built-in panel recruitment options",
+    "Integration with popular research platforms",
+    "Responsive customer support"
+  ],
+  "cons": [
+    "Premium pricing tier",
+    "Cloud-only - no self-hosted option",
+    "Primarily designed for commercial use cases",
+    "Less suitable for academic research paradigms"
+  ],
+  "homepage": "https://www.tobii.com/products/software/consumer-research-software/sticky",
+  "docs": "https://www.tobii.com/products/software/consumer-research-software/sticky",
+  "papers": [],
+  "license": "Commercial",
+  "primary_language": "JavaScript",
+  "platform_support": ["Chrome", "Firefox", "Edge", "Mobile"],
+  "features": {
+    "gaze": true,
+    "fixation": true,
+    "heatmap": true,
+    "blink_detection": true
+  },
+  "calibration": "required",
+  "claimed_accuracy": "Approximately 1.5 degrees (claimed - vendor documentation)",
+  "privacy_notes": "Data stored on Tobii cloud infrastructure. GDPR and SOC 2 compliant. Consult vendor for detailed privacy policy.",
+  "tags": ["commercial", "saas", "market-research", "professional"],
+  "last_verified": "2025-12-08",
+  "verified_by": "Compendium team"
+}

@@ -1,0 +1,19 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import ToolBrowser from '../../components/tools/ToolBrowser';
+import { getAllTools } from '../../data';
+
+const allTools = getAllTools();
+---
+
+<Layout title="Browse Eye-Tracking Tools | Webcam Eye-Tracking Compendium">
+  <div class="bg-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Browse Eye-Tracking Tools</h1>
+      </div>
+
+      <ToolBrowser tools={allTools} client:load />
+    </div>
+  </div>
+</Layout>

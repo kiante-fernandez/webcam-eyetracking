@@ -1,0 +1,69 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+
+const guides = [
+  {
+    title: 'jsPsych Integration',
+    description: 'Learn how to integrate webcam eye tracking into jsPsych experiments for psychology and neuroscience research.',
+    slug: 'jspsych',
+    time: '30 minutes'
+  },
+  {
+    title: 'Qualtrics Integration',
+    description: 'Add eye tracking to your Qualtrics surveys for enhanced UX research and attention metrics.',
+    slug: 'qualtrics',
+    time: '15 minutes'
+  },
+  {
+    title: 'oTree Integration',
+    description: 'Implement eye tracking in oTree for behavioral economics and game theory experiments.',
+    slug: 'otree',
+    time: '45 minutes'
+  },
+  {
+    title: 'Plain HTML Demo',
+    description: 'A minimal example showing how to add basic eye tracking to any HTML page.',
+    slug: 'plain-html',
+    time: '10 minutes'
+  },
+  {
+    title: 'PsychoPy Integration',
+    description: 'Integrate webcam eye tracking into PsychoPy experiments for psychology and cognitive research.',
+    slug: 'psychopy',
+    time: '25 minutes'
+  }
+];
+---
+
+<Layout title="Integration Guides | Webcam Eye-Tracking Compendium">
+  <div class="bg-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-gray-900 mb-6">Integration Guides</h1>
+      <p class="text-xl text-gray-700 mb-12">
+        Step-by-step guides for integrating webcam eye tracking into popular research platforms and your own applications.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {guides.map((guide) => (
+          <article class="card p-6">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-3">{guide.title}</h2>
+            <p class="text-gray-600 mb-4">{guide.description}</p>
+            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+              <span class="inline-flex items-center">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                </svg>
+                {guide.time}
+              </span>
+            </div>
+            <div class="bg-white border border-gray-200 p-4 rounded text-center">
+              <p class="text-sm text-gray-600">
+                Guide content coming in Phase 6
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,51 @@
+{
+  "id": "webeyetrack",
+  "name": "WebEyeTrack",
+  "slug": "webeyetrack",
+  "tagline": "Lightweight CNN-based gaze estimation with few-shot on-device personalization",
+  "short_impression": "WebEyeTrack is an open-source framework that uses a lightweight CNN-based neural network to predict gaze points on screen. It offers both Python and JavaScript/TypeScript implementations, enabling real-time eye tracking in web browsers with few-shot gaze estimation capabilities. The framework supports on-device personalization and unseen person adaptation, making it particularly suitable for HCI applications and research.",
+  "pros": [
+    "Few-shot learning with minimal calibration samples",
+    "Dual implementation (Python for research, JavaScript for deployment)",
+    "Lightweight CNN architecture suitable for real-time inference",
+    "On-device personalization without server requirements",
+    "Supports both desktop and browser-based applications",
+    "MIT License allows commercial use"
+  ],
+  "cons": [
+    "Smaller community compared to established tools (19 GitHub stars)",
+    "Limited documentation and examples",
+    "Requires sample collection for personalization",
+    "Newer tool with less extensive validation"
+  ],
+  "homepage": "https://redforestai.github.io/WebEyeTrack/",
+  "repo": "https://github.com/redforestai/WebEyeTrack",
+  "demo": "https://azure-olympie-5.tiiny.site",
+  "docs": "https://github.com/redforestai/WebEyeTrack#readme",
+  "papers": [
+    {
+      "title": "WebEyeTrack: CNN-based Gaze Estimation",
+      "authors": "RedForest AI",
+      "year": 2025
+    }
+  ],
+  "license": "MIT",
+  "primary_language": "JavaScript",
+  "platform_support": ["Chrome", "Firefox", "Edge", "Safari", "Desktop"],
+  "features": {
+    "gaze": true,
+    "fixation": false,
+    "heatmap": false,
+    "blink_detection": false
+  },
+  "calibration": "required",
+  "claimed_accuracy": "Not specified - validation studies recommended",
+  "privacy_notes": "On-device processing with personalization. All computation occurs locally without requiring external servers.",
+  "example_snippet": "// WebEyeTrack integration example\n// See documentation at: https://github.com/redforestai/WebEyeTrack",
+  "tags": ["open-source", "research", "javascript", "python", "browser", "cnn", "deep-learning"],
+  "last_verified": "2025-12-08",
+  "verified_by": "Compendium team",
+  "metadata": {
+    "github_stars": 19
+  }
+}

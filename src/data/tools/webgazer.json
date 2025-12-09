@@ -1,0 +1,51 @@
+{
+  "id": "webgazer",
+  "name": "WebGazer.js",
+  "slug": "webgazer",
+  "tagline": "Browser-based eye tracking library using common webcams",
+  "short_impression": "WebGazer.js is an open-source JavaScript library that enables real-time eye tracking directly in web browsers using standard webcams. Developed at Brown University's HCI lab, it has become the most widely adopted webcam-based eye tracking solution for web applications, with peer-reviewed validation studies demonstrating accuracy suitable for many research paradigms.",
+  "pros": [
+    "No installation required - runs entirely in browser",
+    "Active development and maintenance",
+    "Extensive academic validation and citations",
+    "Compatible with major frameworks (React, Vue, vanilla JS)",
+    "Well-documented API with examples"
+  ],
+  "cons": [
+    "Requires user calibration (typically 9-point)",
+    "Accuracy degrades with head movement",
+    "Performance varies significantly across browsers",
+    "Requires HTTPS for webcam access in production"
+  ],
+  "homepage": "https://webgazer.cs.brown.edu/",
+  "repo": "https://github.com/brownhci/WebGazer",
+  "demo": "https://webgazer.cs.brown.edu/",
+  "docs": "https://github.com/brownhci/WebGazer/wiki",
+  "papers": [
+    {
+      "title": "WebGazer: Scalable Webcam Eye Tracking Using User Interactions",
+      "authors": "Papoutsaki, A., Sangkloy, P., Laskey, J., Daskalova, N., Huang, J., & Hays, J.",
+      "year": 2016,
+      "doi": "10.24963/ijcai.2016/549"
+    }
+  ],
+  "license": "GPL-3.0",
+  "primary_language": "HTML",
+  "platform_support": ["Chrome", "Firefox", "Edge", "Safari"],
+  "features": {
+    "gaze": true,
+    "fixation": true,
+    "heatmap": false,
+    "blink_detection": false
+  },
+  "calibration": "required",
+  "claimed_accuracy": "Approximately 1-2 degrees of visual angle under optimal conditions (peer-reviewed)",
+  "privacy_notes": "All processing occurs client-side in the browser. No data is sent to external servers by default.",
+  "example_snippet": "// Initialize WebGazer\nwebgazer.setGazeListener((data, clock) => {\n  if (data == null) return;\n  console.log(`Gaze at: (${data.x}, ${data.y})`);\n}).begin();\n\n// Start calibration\nwebgazer.showPredictionPoints(true);",
+  "tags": ["open-source", "research", "javascript", "browser"],
+  "last_verified": "2025-12-08",
+  "verified_by": "Compendium team",
+  "metadata": {
+    "github_stars": 3800
+  }
+}
