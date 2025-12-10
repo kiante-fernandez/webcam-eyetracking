@@ -12,13 +12,13 @@ async function updateToolMetadata(toolPath: string): Promise<void> {
   const tool: Tool = JSON.parse(readFileSync(toolPath, 'utf-8'));
 
   if (!tool.repo || !tool.repo.includes('github.com')) {
-    console.log(`⏭️  Skipping ${tool.name}: no GitHub repo`);
+    console.log(`[SKIP] ${tool.name}: no GitHub repo`);
     return;
   }
 
   const match = tool.repo.match(/github\.com\/([^\/]+)\/([^\/]+)/);
   if (!match) {
-    console.log(`⏭️  Skipping ${tool.name}: invalid GitHub URL`);
+    console.log(`[SKIP] ${tool.name}: invalid GitHub URL`);
     return;
   }
 
@@ -59,10 +59,10 @@ async function updateToolMetadata(toolPath: string): Promise<void> {
     };
 
     writeFileSync(toolPath, JSON.stringify(tool, null, 2) + '\n');
-    console.log(`✅ Updated ${tool.name}: ${repoData.stargazers_count} stars, last commit ${lastCommitDate}`);
+    console.log(`[UPDATE] ${tool.name}: ${repoData.stargazers_count} stars, last commit ${lastCommitDate}`);
 
   } catch (error: any) {
-    console.error(`❌ Error updating ${tool.name}: ${error.message}`);
+    console.error(`[ERROR] Error updating ${tool.name}: ${error.message}`);
   }
 }
 
@@ -70,7 +70,7 @@ async function main() {
   const toolsDir = join(process.cwd(), 'src/data/tools');
   const files = readdirSync(toolsDir).filter((f) => f.endsWith('.json'));
 
-  console.log(`\n🔄 Updating metadata for ${files.length} tools...\n`);
+  console.log(`\nUpdating metadata for ${files.length} tools...\n`);
 
   for (const file of files) {
     const filePath = join(toolsDir, file);
@@ -78,7 +78,7 @@ async function main() {
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
 
-  console.log('\n✅ Metadata update complete!\n');
+  console.log('\nMetadata update complete!\n');
 }
 
 main().catch((error) => {

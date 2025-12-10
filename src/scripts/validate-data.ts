@@ -57,7 +57,7 @@ function validateTools() {
   try {
     const files = readdirSync(toolsDir).filter((f) => f.endsWith('.json'));
 
-    console.log(`\n🔍 Validating ${files.length} tool entries...\n`);
+    console.log(`\nValidating ${files.length} tool entries...\n`);
 
     for (const file of files) {
       const filePath = join(toolsDir, file);
@@ -66,10 +66,10 @@ function validateTools() {
         const data = JSON.parse(content);
 
         ToolSchema.parse(data);
-        console.log(`✅ ${file}`);
+        console.log(`[PASS] ${file}`);
       } catch (error) {
         hasErrors = true;
-        console.error(`❌ ${file}:`);
+        console.error(`[FAIL] ${file}:`);
         if (error instanceof z.ZodError) {
           error.errors.forEach((err) => {
             console.error(`   - ${err.path.join('.')}: ${err.message}`);
@@ -81,13 +81,13 @@ function validateTools() {
     }
 
     if (hasErrors) {
-      console.error('\n❌ Validation failed with errors\n');
+      console.error('\n[ERROR] Validation failed with errors\n');
       process.exit(1);
     } else {
-      console.log('\n✅ All tool entries are valid!\n');
+      console.log('\nAll tool entries are valid!\n');
     }
   } catch (error) {
-    console.error('❌ Error reading tools directory:', error);
+    console.error('[ERROR] Error reading tools directory:', error);
     process.exit(1);
   }
 }

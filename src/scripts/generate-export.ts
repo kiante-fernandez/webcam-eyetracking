@@ -18,13 +18,13 @@ function generateExport() {
 
   writeFileSync(catalogPath, JSON.stringify(catalog, null, 2));
 
-  console.log(`✅ Generated catalog.json with ${tools.length} tools`);
-  console.log(`   Location: ${catalogPath}`);
+  console.log(`Generated catalog.json with ${tools.length} tools`);
+  console.log(`Location: ${catalogPath}`);
 }
 
 try {
   generateExport();
 } catch (error) {
-  console.error('❌ Error generating export:', error);
+  console.error('[ERROR] Error generating export:', error);
   process.exit(1);
 }

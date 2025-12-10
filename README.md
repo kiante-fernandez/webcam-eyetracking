@@ -3,10 +3,11 @@
 [![Deploy](https://github.com/[username]/webcam-eyetracking/actions/workflows/deploy.yml/badge.svg)](https://github.com/[username]/webcam-eyetracking/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A directory of webcam-based eye-tracking software, libraries, and experiment platforms.
+A curated directory of webcam-based eye-tracking software, libraries, and experiment platforms for researchers and developers.
 
 **Live Site:** https://kiante-fernandez.github.io/webcam-eyetracking
 
+**Current Status:** 6 curated tools with detailed comparisons. Integration guides coming soon.
 
 ## Quick Start
 
@@ -43,11 +44,9 @@ webcam-eyetracking/
 ├── src/
 │   ├── components/         # Astro & Preact components
 │   ├── data/
-│   │   ├── tools/          # Tool JSON files (one per tool)
-│   │   ├── schema.json     # JSON Schema for validation
-│   │   └── citations.json  # Academic citations
-│   ├── pages/              # Routes (index, tools, compare, etc.)
-│   ├── scripts/            # Automation scripts
+│   │   └── tools/          # Tool JSON files (one per tool)
+│   ├── pages/              # Routes (index, tools, guides)
+│   ├── scripts/            # Validation & automation scripts
 │   └── types/              # TypeScript type definitions
 ├── public/
 │   └── exports/            # Generated catalog.json
@@ -60,7 +59,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions on adding tools
 
 Quick steps:
 1. Create a new JSON file in `src/data/tools/`
-2. Follow the schema defined in `src/data/schema.json`
+2. Follow the TypeScript schema in `src/types/tool.ts`
 3. Run `npm run validate-data` to ensure validity
 4. Submit a pull request using the tool submission template
 
@@ -117,4 +116,4 @@ To report issues or suggest improvements:
 
 ## Acknowledgments
 
-This compendium draws from academic research, open-source repositories, and commercial platforms. See the [Sources](https://kiante-fernandez.github.io/webcam-eyetracking/sources) page for complete citations.
+This compendium draws from academic research, open-source repositories, and commercial platforms to provide a comprehensive directory of webcam-based eye-tracking tools.
