@@ -22,7 +22,9 @@
   "papers": [],
   "license": "MIT",
   "primary_language": "Python",
-  "platform_support": ["Desktop"],
+  "platform_support": [
+    "Desktop"
+  ],
   "features": {
     "gaze": true,
     "fixation": false,
@@ -33,10 +35,15 @@
   "claimed_accuracy": "Directional only (left, right, center) - not coordinate-based",
   "privacy_notes": "All processing occurs locally. No network requests or data transmission.",
   "example_snippet": "from gaze_tracking import GazeTracking\nimport cv2\n\ngaze = GazeTracking()\nwebcam = cv2.VideoCapture(0)\n\nwhile True:\n    _, frame = webcam.read()\n    gaze.refresh(frame)\n    \n    if gaze.is_blinking():\n        print(\"Blinking\")\n    elif gaze.is_right():\n        print(\"Looking right\")\n    elif gaze.is_left():\n        print(\"Looking left\")",
-  "tags": ["open-source", "python", "beginner-friendly"],
+  "tags": [
+    "open-source",
+    "python",
+    "beginner-friendly"
+  ],
   "last_verified": "2025-12-08",
   "verified_by": "Compendium team",
   "metadata": {
-    "github_stars": 2500
+    "github_stars": 2473,
+    "last_commit_date": "2025-10-04"
   }
 }

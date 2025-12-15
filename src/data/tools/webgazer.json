@@ -31,7 +31,12 @@
   ],
   "license": "GPL-3.0",
   "primary_language": "HTML",
-  "platform_support": ["Chrome", "Firefox", "Edge", "Safari"],
+  "platform_support": [
+    "Chrome",
+    "Firefox",
+    "Edge",
+    "Safari"
+  ],
   "features": {
     "gaze": true,
     "fixation": true,
@@ -42,10 +47,17 @@
   "claimed_accuracy": "Approximately 1-2 degrees of visual angle under optimal conditions (peer-reviewed)",
   "privacy_notes": "All processing occurs client-side in the browser. No data is sent to external servers by default.",
   "example_snippet": "// Initialize WebGazer\nwebgazer.setGazeListener((data, clock) => {\n  if (data == null) return;\n  console.log(`Gaze at: (${data.x}, ${data.y})`);\n}).begin();\n\n// Start calibration\nwebgazer.showPredictionPoints(true);",
-  "tags": ["open-source", "research", "javascript", "browser"],
+  "tags": [
+    "open-source",
+    "research",
+    "javascript",
+    "browser"
+  ],
   "last_verified": "2025-12-08",
   "verified_by": "Compendium team",
   "metadata": {
-    "github_stars": 3800
+    "github_stars": 3764,
+    "last_commit_date": "2025-07-16",
+    "latest_release": "3.4.0"
   }
 }

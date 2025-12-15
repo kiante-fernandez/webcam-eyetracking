@@ -31,7 +31,13 @@
   ],
   "license": "MIT",
   "primary_language": "JavaScript",
-  "platform_support": ["Chrome", "Firefox", "Edge", "Safari", "Desktop"],
+  "platform_support": [
+    "Chrome",
+    "Firefox",
+    "Edge",
+    "Safari",
+    "Desktop"
+  ],
   "features": {
     "gaze": true,
     "fixation": false,
@@ -42,10 +48,19 @@
   "claimed_accuracy": "Not specified - validation studies recommended",
   "privacy_notes": "On-device processing with personalization. All computation occurs locally without requiring external servers.",
   "example_snippet": "// WebEyeTrack integration example\n// See documentation at: https://github.com/redforestai/WebEyeTrack",
-  "tags": ["open-source", "research", "javascript", "python", "browser", "cnn", "deep-learning"],
+  "tags": [
+    "open-source",
+    "research",
+    "javascript",
+    "python",
+    "browser",
+    "cnn",
+    "deep-learning"
+  ],
   "last_verified": "2025-12-08",
   "verified_by": "Compendium team",
   "metadata": {
-    "github_stars": 19
+    "github_stars": 20,
+    "last_commit_date": "2025-09-19"
   }
 }
