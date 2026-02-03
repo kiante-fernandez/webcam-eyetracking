@@ -10,7 +10,6 @@
     "astro": "astro",
     "typecheck": "astro check",
     "validate-data": "tsx src/scripts/validate-data.ts",
-    "update-metadata": "tsx src/scripts/update-metadata.ts",
     "generate-export": "tsx src/scripts/generate-export.ts",
     "test:unit": "vitest run",
     "test:e2e": "playwright test",

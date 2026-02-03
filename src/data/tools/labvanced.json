@@ -7,14 +7,6 @@
   "homepage": "https://www.labvanced.com/",
   "demo": "https://www.labvanced.com/page.html?page=demo",
   "docs": "https://www.labvanced.com/content/technology/en/labvanced-eye-tracking/",
-  "papers": [
-    {
-      "title": "Labvanced: A unified JavaScript framework for online studies",
-      "authors": "Finger, H., Goeke, C., Diekamp, D., Standvoß, K., & König, P.",
-      "year": 2017,
-      "doi": "10.1109/ICME.2017.8019511"
-    }
-  ],
   "license": "Commercial",
   "primary_language": "JavaScript",
   "platform_support": ["Chrome", "Firefox", "Edge"],
@@ -25,9 +17,6 @@
     "blink_detection": true
   },
   "calibration": "required",
-  "claimed_accuracy": "300-400% improvement over existing technologies like WebGazer (vendor claim)",
   "privacy_notes": "Data stored on Labvanced servers. GDPR compliant. Institutional agreements available for data residency requirements.",
-  "tags": ["commercial", "research", "experiments", "browser", "psychology"],
-  "last_verified": "2025-12-08",
-  "verified_by": "Compendium team"
+  "tags": ["commercial", "research", "experiments", "browser", "psychology"]
 }

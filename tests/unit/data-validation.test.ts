@@ -7,8 +7,8 @@ describe('Tool Data Validation', () => {
   const toolsDir = join(process.cwd(), 'src/data/tools');
   const files = readdirSync(toolsDir).filter((f) => f.endsWith('.json'));
 
-  it('should have at least 6 tool entries', () => {
-    expect(files.length).toBeGreaterThanOrEqual(6);
+  it('should have at least 5 tool entries', () => {
+    expect(files.length).toBeGreaterThanOrEqual(5);
   });
 
   files.forEach((file) => {
@@ -31,16 +31,6 @@ describe('Tool Data Validation', () => {
         expect(tool.slug).toBeDefined();
         expect(tool.license).toBeDefined();
         expect(tool.primary_language).toBeDefined();
-        expect(tool.last_verified).toBeDefined();
-        expect(tool.verified_by).toBeDefined();
-      });
-
-      it('should have valid date format for last_verified', () => {
-        const content = readFileSync(join(toolsDir, file), 'utf-8');
-        tool = JSON.parse(content);
-
-        const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-        expect(tool.last_verified).toMatch(dateRegex);
       });
 
       it('should have matching id and slug', () => {

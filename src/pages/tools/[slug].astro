@@ -36,9 +36,6 @@ const licenseVariant = tool.license.includes('MIT') || tool.license.includes('Ap
           <Badge text={tool.primary_language} variant="gray" />
           {tool.calibration === 'none' && <Badge text="No calibration" variant="success" />}
           {tool.tags.includes('featured') && <Badge text="Featured" variant="primary" />}
-          {tool.metadata?.github_stars && (
-            <Badge text={`${tool.metadata.github_stars.toLocaleString()} stars`} variant="info" />
-          )}
         </div>
       </div>
 
@@ -53,25 +50,6 @@ const licenseVariant = tool.license.includes('MIT') || tool.license.includes('Ap
             <section class="mb-8">
               <h3 class="text-xl font-semibold text-gray-900 mb-3">Code Example</h3>
               <pre class="bg-gray-50 p-4 rounded-lg overflow-x-auto"><code>{tool.example_snippet}</code></pre>
-            </section>
-          )}
-
-          {tool.papers.length > 0 && (
-            <section class="mb-8">
-              <h3 class="text-xl font-semibold text-gray-900 mb-3">Academic Papers</h3>
-              <ul class="space-y-3">
-                {tool.papers.map((paper) => (
-                  <li class="bg-gray-50 p-4 rounded">
-                    <p class="font-medium text-gray-900">{paper.title}</p>
-                    <p class="text-sm text-gray-600 mt-1">{paper.authors} ({paper.year})</p>
-                    {paper.doi && (
-                      <a href={`https://doi.org/${paper.doi}`} class="text-sm text-primary-600 hover:text-primary-700 mt-1 inline-block" target="_blank" rel="noopener noreferrer">
-                        DOI: {paper.doi}
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
             </section>
           )}
 
@@ -108,13 +86,6 @@ const licenseVariant = tool.license.includes('MIT') || tool.license.includes('Ap
                 <dd class="mt-1 text-sm text-gray-900 capitalize">{tool.calibration}</dd>
               </div>
 
-              {tool.claimed_accuracy && (
-                <div>
-                  <dt class="text-sm font-medium text-gray-500">Claimed Accuracy</dt>
-                  <dd class="mt-1 text-sm text-gray-900">{tool.claimed_accuracy}</dd>
-                </div>
-              )}
-
               <div>
                 <dt class="text-sm font-medium text-gray-500">Features</dt>
                 <dd class="mt-1 space-y-1">
@@ -123,12 +94,6 @@ const licenseVariant = tool.license.includes('MIT') || tool.license.includes('Ap
                   {tool.features.heatmap && <span class="block text-sm text-gray-900">• Heatmap generation</span>}
                   {tool.features.blink_detection && <span class="block text-sm text-gray-900">• Blink detection</span>}
                 </dd>
-              </div>
-
-              <div>
-                <dt class="text-sm font-medium text-gray-500">Last Verified</dt>
-                <dd class="mt-1 text-sm text-gray-900">{tool.last_verified}</dd>
-                <dd class="text-xs text-gray-500">by {tool.verified_by}</dd>
               </div>
             </dl>
 
