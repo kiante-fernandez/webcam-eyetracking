@@ -4,19 +4,6 @@
   "slug": "gorilla",
   "tagline": "Online experiment builder for behavioral researchers with WebGazer integration",
   "short_impression": "Gorilla is a widely-adopted online experiment platform in cognitive neuroscience and psychology research. It offers an intuitive experiment builder with WebGazer eye tracking integration as a control component, allowing researchers to conduct remote studies with sophisticated experimental designs. The platform is known for its timing precision, extensive task templates, and robust participant management system.",
-  "pros": [
-    "Widely used in academic research (high credibility)",
-    "Excellent timing precision for cognitive experiments",
-    "Large library of validated task templates",
-    "Active user community and support forums",
-    "Integrated participant recruitment through Prolific"
-  ],
-  "cons": [
-    "Subscription-based pricing (can be expensive for small labs)",
-    "Eye tracking is an add-on feature (not included in basic plan)",
-    "Primarily designed for cognitive/behavioral research paradigms",
-    "Webcam tracking accuracy varies with participant hardware"
-  ],
   "homepage": "https://gorilla.sc/",
   "demo": "https://gorilla.sc/presents/eye-tracking-webcam",
   "docs": "https://gorilla.sc/support/reference/eye-tracking-webcam",

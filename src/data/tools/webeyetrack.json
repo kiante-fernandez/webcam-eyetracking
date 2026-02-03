@@ -4,20 +4,6 @@
   "slug": "webeyetrack",
   "tagline": "Lightweight CNN-based gaze estimation with few-shot on-device personalization",
   "short_impression": "WebEyeTrack is an open-source framework that uses a lightweight CNN-based neural network to predict gaze points on screen. It offers both Python and JavaScript/TypeScript implementations, enabling real-time eye tracking in web browsers with few-shot gaze estimation capabilities. The framework supports on-device personalization and unseen person adaptation, making it particularly suitable for HCI applications and research.",
-  "pros": [
-    "Few-shot learning with minimal calibration samples",
-    "Dual implementation (Python for research, JavaScript for deployment)",
-    "Lightweight CNN architecture suitable for real-time inference",
-    "On-device personalization without server requirements",
-    "Supports both desktop and browser-based applications",
-    "MIT License allows commercial use"
-  ],
-  "cons": [
-    "Smaller community compared to established tools (19 GitHub stars)",
-    "Limited documentation and examples",
-    "Requires sample collection for personalization",
-    "Newer tool with less extensive validation"
-  ],
   "homepage": "https://redforestai.github.io/WebEyeTrack/",
   "repo": "https://github.com/redforestai/WebEyeTrack",
   "demo": "https://azure-olympie-5.tiiny.site",

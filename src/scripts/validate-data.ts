@@ -29,8 +29,6 @@ const ToolSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   tagline: z.string().max(150),
   short_impression: z.string().max(500),
-  pros: z.array(z.string()),
-  cons: z.array(z.string()),
   homepage: z.string().url().optional(),
   repo: z.string().url().optional(),
   demo: z.string().url().optional(),

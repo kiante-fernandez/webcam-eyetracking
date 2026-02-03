@@ -68,12 +68,10 @@ describe('Tool Data Validation', () => {
         expect(['required', 'optional', 'none']).toContain(tool.calibration);
       });
 
-      it('should have arrays for pros, cons, and tags', () => {
+      it('should have arrays for tags and platform_support', () => {
         const content = readFileSync(join(toolsDir, file), 'utf-8');
         tool = JSON.parse(content);
 
-        expect(Array.isArray(tool.pros)).toBe(true);
-        expect(Array.isArray(tool.cons)).toBe(true);
         expect(Array.isArray(tool.tags)).toBe(true);
         expect(Array.isArray(tool.platform_support)).toBe(true);
       });

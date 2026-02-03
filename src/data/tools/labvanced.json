@@ -4,19 +4,6 @@
   "slug": "labvanced",
   "tagline": "Online experiment platform with built-in eye tracking",
   "short_impression": "Labvanced is a comprehensive online experiment platform that integrates webcam-based eye tracking directly into its experiment builder. Designed for psychology and behavioral research, it combines no-code experiment design with advanced features including eye tracking, EEG integration, and participant management. The platform's eye tracking has been peer-reviewed and validated for research use, achieving accuracy comparable to dedicated webcam solutions.",
-  "pros": [
-    "Integrated experiment builder with eye tracking",
-    "Peer-reviewed accuracy validation",
-    "No programming required for basic experiments",
-    "Built-in participant recruitment and management",
-    "Data analysis tools included"
-  ],
-  "cons": [
-    "Subscription required for full features",
-    "Eye tracking limited to supported browsers",
-    "Learning curve for advanced experiment designs",
-    "Less control than custom-coded solutions"
-  ],
   "homepage": "https://www.labvanced.com/",
   "demo": "https://www.labvanced.com/page.html?page=demo",
   "docs": "https://www.labvanced.com/content/technology/en/labvanced-eye-tracking/",

@@ -4,8 +4,6 @@ export interface Tool {
   slug: string;
   tagline: string;
   short_impression: string;
-  pros: string[];
-  cons: string[];
   homepage?: string;
   repo?: string;
   demo?: string;
