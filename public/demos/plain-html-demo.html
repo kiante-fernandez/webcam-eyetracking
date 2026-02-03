@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebGazer Eye Tracking Demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/webgazer@3.4.0/dist/webgazer.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; height: 100vh; overflow: hidden; }
+
+    #start-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      gap: 20px;
+    }
+
+    #start-btn, #done-btn {
+      padding: 16px 32px;
+      font-size: 18px;
+      background: #0369a1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #start-btn:hover, #done-btn:hover { background: #075985; }
+
+    #done-btn {
+      position: fixed;
+      bottom: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      z-index: 1000;
+    }
+
+    .calibration-point {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background: #0369a1;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      z-index: 100;
+    }
+    .calibration-point:hover { background: #075985; transform: scale(1.1); }
+
+    #gaze-dot {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+      pointer-events: none;
+      display: none;
+      z-index: 1000;
+      transform: translate(-50%, -50%);
+    }
+
+    #instructions {
+      position: fixed;
+      top: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div id="start-screen">
+    <h1>WebGazer Eye Tracking Demo</h1>
+    <p>Click the button to start eye tracking</p>
+    <button id="start-btn">Track Eyes</button>
+  </div>
+
+  <div id="instructions"></div>
+  <button id="done-btn">Done Calibrating</button>
+  <div id="gaze-dot"></div>
+
+  <!-- 9 calibration points -->
+  <div class="calibration-point" style="top:5%;left:5%"></div>
+  <div class="calibration-point" style="top:5%;left:50%;transform:translateX(-50%)"></div>
+  <div class="calibration-point" style="top:5%;right:5%"></div>
+  <div class="calibration-point" style="top:50%;left:5%;transform:translateY(-50%)"></div>
+  <div class="calibration-point" style="top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+  <div class="calibration-point" style="top:50%;right:5%;transform:translateY(-50%)"></div>
+  <div class="calibration-point" style="bottom:5%;left:5%"></div>
+  <div class="calibration-point" style="bottom:5%;left:50%;transform:translateX(-50%)"></div>
+  <div class="calibration-point" style="bottom:5%;right:5%"></div>
+
+  <script>
+    const startScreen = document.getElementById('start-screen');
+    const startBtn = document.getElementById('start-btn');
+    const doneBtn = document.getElementById('done-btn');
+    const gazeDot = document.getElementById('gaze-dot');
+    const instructions = document.getElementById('instructions');
+    const calibrationPoints = document.querySelectorAll('.calibration-point');
+
+    startBtn.addEventListener('click', async () => {
+      startScreen.style.display = 'none';
+      instructions.style.display = 'block';
+      instructions.textContent = 'Allow camera access, then click each blue dot 5 times';
+
+      // Show calibration points
+      calibrationPoints.forEach(point => point.style.display = 'block');
+      doneBtn.style.display = 'block';
+
+      // Start WebGazer with gaze listener
+      webgazer.setGazeListener((data, clock) => {
+        if (data == null) return;
+        gazeDot.style.left = data.x + 'px';
+        gazeDot.style.top = data.y + 'px';
+      }).begin();
+
+      // Show prediction points during calibration
+      webgazer.showPredictionPoints(true);
+    });
+
+    // Track clicks on calibration points
+    calibrationPoints.forEach(point => {
+      let clicks = 0;
+      point.addEventListener('click', () => {
+        clicks++;
+        point.style.opacity = Math.max(0.3, 1 - (clicks * 0.15));
+        if (clicks >= 5) {
+          point.style.background = '#22c55e';
+        }
+      });
+    });
+
+    doneBtn.addEventListener('click', () => {
+      // Hide calibration UI
+      calibrationPoints.forEach(point => point.style.display = 'none');
+      doneBtn.style.display = 'none';
+      webgazer.showPredictionPoints(false);
+
+      // Show gaze dot
+      gazeDot.style.display = 'block';
+      instructions.textContent = 'Tracking your gaze! The red dot follows where you look.';
+    });
+  </script>
+</body>
+</html>

@@ -24,8 +24,3 @@ export function getAllTools(): Tool[] {
   cachedTools = tools;
   return tools;
 }
-
-export function getToolBySlug(slug: string): Tool | undefined {
-  const tools = getAllTools();
-  return tools.find((tool) => tool.slug === slug);
-}

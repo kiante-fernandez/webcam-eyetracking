@@ -1,36 +1,41 @@
 ---
 import Layout from '../../components/layout/Layout.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const guides = [
   {
     title: 'jsPsych Integration',
-    description: 'Learn how to integrate webcam eye tracking into jsPsych experiments for psychology and neuroscience research.',
+    description: 'Integrate webcam eye tracking into jsPsych experiments.',
     slug: 'jspsych',
-    time: '30 minutes'
+    exampleUrl: 'https://www.jspsych.org/v7/demos/eye-tracking-with-webgazer.html',
+    codeUrl: 'https://github.com/xiaozhi2/webgazertutorial'
   },
   {
     title: 'Qualtrics Integration',
-    description: 'Add eye tracking to your Qualtrics surveys for enhanced UX research and attention metrics.',
+    description: 'Add eye tracking to your Qualtrics surveys.',
     slug: 'qualtrics',
-    time: '15 minutes'
+    exampleUrl: 'https://uclapsych.qualtrics.com/jfe/form/SV_abD8KUns1FACIQu',
+    codeUrl: 'https://github.com/kiante-fernandez/webgazer-qualtrics'
   },
   {
     title: 'oTree Integration',
-    description: 'Implement eye tracking in oTree for behavioral economics and game theory experiments.',
-    slug: 'otree',
-    time: '45 minutes'
+    description: 'Implement eye tracking in oTree for experimental economics tasks.',
+    slug: 'otree'
   },
   {
     title: 'Plain HTML Demo',
-    description: 'A minimal example showing how to add basic eye tracking to any HTML page.',
+    description: 'A minimal example showing to add eye tracking to any HTML page.',
     slug: 'plain-html',
-    time: '10 minutes'
+    exampleUrl: `${base}/demos/plain-html-demo.html`,
+    codeUrl: 'https://github.com/kiante-fernandez/webcam-eyetracking/blob/main/public/demos/plain-html-demo.html'
   },
   {
     title: 'PsychoPy Integration',
-    description: 'Integrate webcam eye tracking into PsychoPy experiments for psychology and cognitive research.',
+    description: 'Integrate webcam eye tracking into PsychoPy experiments.',
     slug: 'psychopy',
-    time: '25 minutes'
+    exampleUrl: 'https://run.pavlovia.org/tpronk/demo_eye_tracking2/',
+    codeUrl: 'https://gitlab.pavlovia.org/tpronk/demo_eye_tracking2'
   }
 ];
 ---
@@ -48,19 +53,32 @@ const guides = [
           <article class="card p-6">
             <h2 class="text-2xl font-semibold text-gray-900 mb-3">{guide.title}</h2>
             <p class="text-gray-600 mb-4">{guide.description}</p>
-            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
-              <span class="inline-flex items-center">
-                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
-                </svg>
-                {guide.time}
-              </span>
-            </div>
-            <div class="bg-white border border-gray-200 p-4 rounded text-center">
-              <p class="text-sm text-gray-600">
-                Guide content coming in Phase 6
-              </p>
-            </div>
+            {(guide.exampleUrl || guide.codeUrl) ? (
+              <div class="flex gap-2">
+                {guide.exampleUrl && (
+                  <a href={guide.exampleUrl}
+                     class="btn btn-primary"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    Example
+                  </a>
+                )}
+                {guide.codeUrl && (
+                  <a href={guide.codeUrl}
+                     class="btn btn-secondary"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    Code
+                  </a>
+                )}
+              </div>
+            ) : (
+              <div class="bg-white border border-gray-200 p-4 rounded text-center">
+                <p class="text-sm text-gray-600">
+                  Guide content coming in Phase 6
+                </p>
+              </div>
+            )}
           </article>
         ))}
       </div>
