@@ -3,7 +3,7 @@
   "name": "GazeTracking",
   "slug": "gazetracking",
   "tagline": "Lightweight Python library for real-time gaze tracking",
-  "short_impression": "GazeTracking is a minimalist Python library built on OpenCV that provides simple gaze direction detection (left, right, center) and eye state tracking (open/closed). While not designed for precise coordinate tracking like research-grade systems, it offers an accessible entry point for developers needing basic eye tracking functionality in desktop applications.",
+  "short_impression": "GazeTracking is a minimalist Python library built on OpenCV that provides simple gaze direction detection (left, right, center) and eye state tracking (open/closed). While not designed for precise coordinate tracking, it offers an accessible entry point for developers needing basic eye tracking functionality in desktop applications.",
   "repo": "https://github.com/antoinelame/GazeTracking",
   "docs": "https://github.com/antoinelame/GazeTracking#readme",
   "license": "MIT",

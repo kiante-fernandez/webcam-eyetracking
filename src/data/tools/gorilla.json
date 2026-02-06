@@ -3,7 +3,7 @@
   "name": "Gorilla",
   "slug": "gorilla",
   "tagline": "Online experiment builder for behavioral researchers with WebGazer integration",
-  "short_impression": "Gorilla is a widely-adopted online experiment platform in cognitive neuroscience and psychology research. It offers an intuitive experiment builder with WebGazer eye tracking integration as a control component, allowing researchers to conduct remote studies with sophisticated experimental designs. The platform is known for its timing precision, extensive task templates, and robust participant management system.",
+  "short_impression": "Gorilla is a widely-adopted online experiment platform. It offers an graphical user interface experiment builder with WebGazer eye tracking integration as a control component, allowing researchers to conduct remote studies with more complicated experimental designs (e.g. multi-player). The platform is known for its timing precision, task templates, and participant management system.",
   "homepage": "https://gorilla.sc/",
   "demo": "https://gorilla.sc/presents/eye-tracking-webcam",
   "docs": "https://gorilla.sc/support/reference/eye-tracking-webcam",
@@ -17,6 +17,6 @@
     "blink_detection": false
   },
   "calibration": "required",
-  "privacy_notes": "Data stored on Gorilla cloud infrastructure. GDPR compliant. Institutional data processing agreements available.",
+  "privacy_notes": "Data stored on Gorilla cloud infrastructure.",
   "tags": ["commercial", "research", "experiments", "browser", "cognitive-science"]
 }
