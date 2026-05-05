@@ -1,6 +1,6 @@
 # Webcam Eye-Tracking Compendium
 
-A curated directory of webcam-based eye-tracking software, libraries, and experiment platforms for researchers and developers.
+Integration guides for embedding webcam-based eye tracking in online research workflows.
 
 **Live Site:** https://kiante-fernandez.github.io/webcam-eyetracking
 
@@ -8,23 +8,21 @@ A curated directory of webcam-based eye-tracking software, libraries, and experi
 
 The rise of autonomous AI agents poses a critical threat to online research. As LLMs become capable of mimicking human behavior and bypassing static attention checks, researchers can no longer rely on traditional methods to verify participants.
 
-Based on the idea of **Proof by Presence**, we argue that embedding webcam-based eye-tracking into data collection creates a verifiable physiological signal—a dynamic, moment-to-moment human fingerprint that is difficult for AI to simulate.
-
-This compendium provides open-source tools and guides for integrating webcam-based eye-tracking into research workflows.
+We argue for a paradigm shift: **proof by presence**. Embedding webcam-based eye tracking into data collection produces a physiological signal—a moment-to-moment digital fingerprint that, while not infallible, would require a level of technical sophistication and hardware modification well beyond the tools used to automate online tasks.
 
 ## What's Included
 
-- **Tools**: Curated directory of eye-tracking libraries and platforms with detailed information on features, accuracy, and licensing
-- **Integration Guides**: Step-by-step guides for jsPsych, Qualtrics, PsychoPy, oTree, and plain HTML
-- **Live Demos**: Working examples you can try directly in your browser
+- **Integration Guides**: Step-by-step guides for jsPsych, oTree, PsychoPy, plain HTML, and Qualtrics
+- **Hosted Demo**: A working plain-HTML eye-tracking demo at `/demos/plain-html-demo.html`
+- **Qualtrics Template**: A downloadable `.qsf` survey template at `/templates/qualtrics-eyetracking-template.qsf`
 
-## Machine-Readable Export
+## Companion Paper
 
-A complete JSON export of all tools is available at `/exports/catalog.json` on the live site for programmatic access.
+Fernandez, K., Yang, X., Smith, S. M., & Krajbich, I. (forthcoming). _Defending Against AI Agents with Webcam Eye Tracking._
 
 ## Contributing
 
-Want to add a tool or improve the compendium? See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Want to add a guide or improve the site? See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
