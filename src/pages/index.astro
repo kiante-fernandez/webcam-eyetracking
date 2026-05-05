@@ -2,6 +2,49 @@
 import Layout from '../components/layout/Layout.astro';
 
 const base = import.meta.env.BASE_URL;
+
+const guides = [
+  {
+    title: 'jsPsych Integration',
+    description: 'Integrate webcam eye tracking into jsPsych experiments.',
+    slug: 'jspsych',
+    exampleUrl: 'https://www.jspsych.org/v7/demos/eye-tracking-with-webgazer.html',
+    codeUrl: 'https://github.com/xiaozhi2/webgazertutorial',
+    noCodeRequired: false
+  },
+  {
+    title: 'oTree Integration',
+    description: 'Implement eye tracking in oTree for experimental economics tasks.',
+    slug: 'otree',
+    codeUrl: 'https://github.com/kiante-fernandez/otree-et',
+    noCodeRequired: false
+  },
+  {
+    title: 'PsychoPy Integration',
+    description: 'Integrate webcam eye tracking into PsychoPy experiments.',
+    slug: 'psychopy',
+    exampleUrl: 'https://run.pavlovia.org/tpronk/demo_eye_tracking2/',
+    codeUrl: 'https://gitlab.pavlovia.org/tpronk/demo_eye_tracking2',
+    noCodeRequired: false
+  },
+  {
+    title: 'Plain HTML Demo',
+    description: 'A minimal example showing how to add eye tracking to any HTML page.',
+    slug: 'plain-html',
+    exampleUrl: `${base}/demos/plain-html-demo.html`,
+    codeUrl: 'https://raw.githubusercontent.com/kiante-fernandez/webcam-eyetracking/refs/heads/main/public/demos/plain-html-demo.html',
+    noCodeRequired: false
+  },
+  {
+    title: 'Qualtrics Integration',
+    description: 'Add eye tracking to your Qualtrics surveys.',
+    slug: 'qualtrics',
+    exampleUrl: 'https://uclapsych.qualtrics.com/jfe/form/SV_abD8KUns1FACIQu',
+    codeUrl: 'https://github.com/kiante-fernandez/webgazer-qualtrics',
+    noCodeRequired: true,
+    downloadUrl: `${base}/templates/qualtrics-eyetracking-template.qsf`
+  }
+];
 ---
 
 <Layout title="Webcam Eye-Tracking Compendium">
@@ -12,32 +55,21 @@ const base = import.meta.env.BASE_URL;
           Webcam Eye-Tracking <span class="text-primary-600">Compendium</span>
         </h1>
         <p class="mt-4 text-xl text-gray-700 max-w-3xl mx-auto">
-          A directory of webcam-based eye-tracking software, libraries, and experiment platforms.
+          Integration guides for embedding webcam-based eye tracking in online research.
         </p>
         <div class="mt-8 flex justify-center gap-4">
-          <a href={`${base}/tools`} class="btn btn-primary text-lg px-8 py-3">
-            Browse Tools
+          <a href="#guides" class="btn btn-primary text-lg px-8 py-3">
+            View Guides
           </a>
-          <a href={`${base}/guides`} class="btn btn-secondary text-lg px-8 py-3">
-            Guides
+          <a href="#paper" class="btn btn-secondary text-lg px-8 py-3">
+            Read the Paper
           </a>
-        </div>
-
-        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-          <div class="p-6 bg-gray-50 rounded-lg">
-            <h2 class="text-lg font-semibold text-gray-900 mb-2">Browse Tools</h2>
-            <p class="text-gray-600">Explore our directory of webcam-based eye-tracking libraries and software. Compare features, licensing, and platform support to find the right tool for your research needs.</p>
-          </div>
-          <div class="p-6 bg-gray-50 rounded-lg">
-            <h2 class="text-lg font-semibold text-gray-900 mb-2">Guides</h2>
-            <p class="text-gray-600">Step-by-step tutorials for integrating webcam eye tracking into popular research platforms like jsPsych, Qualtrics, oTree, and PsychoPy.</p>
-          </div>
         </div>
       </div>
     </div>
   </div>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <section class="mb-16">
       <div class="prose prose-lg max-w-none text-gray-700">
         <p>
@@ -45,18 +77,78 @@ const base = import.meta.env.BASE_URL;
         </p>
 
         <p>
-          Based on the idea of <strong>Proof by Presence</strong>, we argue that embedding webcam-based eye-tracking into data collection creates a verifiable physiological signal—a dynamic, moment-to-moment human fingerprint that is difficult for AI to simulate.
+          We argue for a paradigm shift: <strong>proof by presence</strong>. Embedding webcam-based eye tracking into data collection produces a physiological signal—a moment-to-moment digital fingerprint that, while not infallible, would require a level of technical sophistication and hardware modification well beyond the tools used to automate online tasks.
         </p>
 
         <p>
-          To make this defense accessible to all, we provide a compendium of open-source tools and guides for integrating webcam-based eye-tracking into research workflows. Our goal is to democratize access to process-tracing technology, allowing researchers to validate human engagement.
+          To make this defense accessible to researchers, we provide integration guides for the most common online experiment platforms. Our goal is to lower the barrier to adoption so that proof by presence becomes a practical default rather than a specialized technique.
         </p>
-
       </div>
-
     </section>
 
-    <section class="mt-12 pt-8 border-t border-gray-200">
+    <section id="guides" class="mb-16 scroll-mt-20">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Integration Guides</h2>
+      <p class="text-gray-700 mb-8">
+        Step-by-step guides for embedding webcam eye tracking in jsPsych, oTree, PsychoPy, plain HTML, and Qualtrics.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {guides.map((guide) => (
+          <article class="card p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <h3 class="text-2xl font-semibold text-gray-900">{guide.title}</h3>
+              {guide.noCodeRequired && (
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                  No coding required
+                </span>
+              )}
+            </div>
+            <p class="text-gray-600 mb-4">{guide.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {guide.exampleUrl && (
+                <a href={guide.exampleUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                  Example
+                </a>
+              )}
+              {guide.codeUrl && (
+                <a href={guide.codeUrl} class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                  Code
+                </a>
+              )}
+              {guide.downloadUrl && (
+                <a href={guide.downloadUrl} class="btn btn-secondary" download>
+                  Download Template
+                </a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="paper" class="mb-16 scroll-mt-20">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Companion Paper</h2>
+      <div class="border-l-4 border-primary-600 bg-gray-50 p-6 rounded-r-lg">
+        <div class="flex items-start justify-between gap-4 flex-wrap">
+          <div class="flex-1 min-w-0">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              Defending Against AI Agents with Webcam Eye Tracking
+            </h3>
+            <p class="text-sm text-gray-600 mb-3">
+              Kianté A. Fernandez, Xiaozhi Yang, Stephanie M. Smith, Ian Krajbich
+            </p>
+            <p class="text-gray-700">
+              A proof-of-concept study examining whether online participants will accept a webcam eye-tracking requirement, and whether that requirement deters AI-assisted responding across survey platforms.
+            </p>
+          </div>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 whitespace-nowrap">
+            Preprint forthcoming
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="pt-8 border-t border-gray-200 scroll-mt-20">
       <h2 class="text-2xl font-bold text-gray-900 mb-6">Who We Are</h2>
       <p class="text-gray-700 mb-8">
         This compendium is maintained by researchers committed to preserving the integrity of online research in the age of AI.
@@ -68,7 +160,7 @@ const base = import.meta.env.BASE_URL;
           <a href="https://www.kiantefernandez.com" class="text-sm text-primary-600 hover:text-primary-700" target="_blank" rel="noopener noreferrer">Website →</a>
         </div>
         <div class="border-l-4 border-primary-600 pl-4">
-          <h3 class="font-semibold text-gray-900 mb-1"> Xiaozhi (Taro) Yang</h3>
+          <h3 class="font-semibold text-gray-900 mb-1">Xiaozhi (Taro) Yang</h3>
           <p class="text-sm text-gray-600 mb-2">University of Pennsylvania</p>
           <a href="https://xiaozhi2.github.io/" class="text-sm text-primary-600 hover:text-primary-700" target="_blank" rel="noopener noreferrer">Website →</a>
         </div>
@@ -84,7 +176,6 @@ const base = import.meta.env.BASE_URL;
         </div>
       </div>
     </section>
-
   </div>
 </Layout>
 

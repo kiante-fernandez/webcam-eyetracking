@@ -1,11 +1,10 @@
 ---
-const { pathname } = Astro.url;
 const base = import.meta.env.BASE_URL;
 
 const navItems = [
-  { href: `${base}`, label: 'Home' },
-  { href: `${base}/tools`, label: 'Browse Tools' },
-  { href: `${base}/guides`, label: 'Guides' }
+  { href: `${base}#guides`, label: 'Guides' },
+  { href: `${base}#paper`, label: 'Paper' },
+  { href: `${base}#about`, label: 'About' }
 ];
 ---
 
@@ -21,12 +20,7 @@ const navItems = [
         {navItems.map((item) => (
           <a
             href={item.href}
-            class={`text-white hover:text-primary-400 font-medium transition-colors ${
-              pathname === item.href || (item.href !== base && pathname.startsWith(item.href))
-                ? 'text-primary-400 border-b-2 border-primary-400'
-                : ''
-            }`}
-            aria-current={pathname === item.href ? 'page' : undefined}
+            class="text-white hover:text-primary-400 font-medium transition-colors"
           >
             {item.label}
           </a>
@@ -49,10 +43,7 @@ const navItems = [
       {navItems.map((item) => (
         <a
           href={item.href}
-          class={`block px-3 py-2 rounded-md text-white hover:bg-gray-800 hover:text-primary-400 ${
-            pathname === item.href ? 'bg-gray-800 text-primary-400' : ''
-          }`}
-          aria-current={pathname === item.href ? 'page' : undefined}
+          class="block px-3 py-2 rounded-md text-white hover:bg-gray-800 hover:text-primary-400"
         >
           {item.label}
         </a>
