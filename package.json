@@ -2,16 +2,13 @@
   "name": "webcam-eyetracking-compendium",
   "type": "module",
   "version": "1.0.0",
-  "description": "A comprehensive directory of webcam-based eye-tracking software and platforms",
+  "description": "Integration guides for embedding webcam-based eye tracking in online research",
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "typecheck": "astro check",
-    "validate-data": "tsx src/scripts/validate-data.ts",
-    "generate-export": "tsx src/scripts/generate-export.ts",
-    "test:unit": "vitest run",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:a11y": "playwright test tests/e2e/accessibility.spec.ts",
@@ -26,17 +23,12 @@
     "@astrojs/sitemap": "^3.2.2",
     "@astrojs/tailwind": "^6.0.2",
     "@axe-core/playwright": "^4.10.0",
-    "@octokit/rest": "^21.0.2",
     "@playwright/test": "^1.49.1",
     "@types/node": "^24.10.1",
-    "@vitest/ui": "^2.1.8",
     "linkinator": "^6.1.2",
     "playwright": "^1.49.1",
     "preact": "^10.27.1",
     "tailwindcss": "^3.4.18",
-    "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
-    "vitest": "^2.1.8",
-    "zod": "^3.24.1"
+    "typescript": "^5.9.3"
   }
 }

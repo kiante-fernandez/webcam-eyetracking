@@ -34,12 +34,6 @@ echo "[OK] pnpm $(pnpm -v) detected"
 echo "Installing dependencies..."
 pnpm install --frozen-lockfile || npm install
 
-# Validate data
-echo "Validating tool data..."
-if [ -f "src/scripts/validate-data.ts" ]; then
-    npm run validate-data || echo "[WARN] Data validation script not yet created"
-fi
-
 # Success message
 echo ""
 echo "Setup complete!"
@@ -47,7 +41,6 @@ echo ""
 echo "Next steps:"
 echo "   npm run dev        - Start development server (http://localhost:4321)"
 echo "   npm run build      - Build for production"
-echo "   npm run test:unit  - Run unit tests"
 echo "   npm run test:e2e   - Run end-to-end tests"
 echo ""
 echo "For more information, see README.md"

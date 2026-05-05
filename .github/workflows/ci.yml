@@ -20,9 +20,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate JSON data
-        run: npm run validate-data
-
       - name: Type check
         run: npm run typecheck
 
@@ -41,9 +38,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Generate export
-        run: npm run generate-export
 
       - name: Build site
         run: npm run build
