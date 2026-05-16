@@ -18,7 +18,7 @@ We argue for a paradigm shift: **proof by presence**. Embedding webcam-based eye
 
 ## Companion Paper
 
-Fernandez, K., Yang, X., Smith, S. M., & Krajbich, I. (forthcoming). _Defending Against AI Agents with Webcam Eye Tracking._
+Fernandez, K., Yang, X., Smith, S. M., & Krajbich, I. (2026). _Defending Against AI Agents with Webcam Eye Tracking._ PsyArXiv. https://osf.io/preprints/psyarxiv/7bfpg_v1
 
 ## Contributing
 
