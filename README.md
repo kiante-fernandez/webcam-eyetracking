@@ -18,8 +18,8 @@ We argue for a paradigm shift: **proof by presence**. Embedding webcam-based eye
   author       = {Fernandez, Kiant{\'e} A. and Yang, Xiaozhi and Smith, Stephanie M. and Krajbich, Ian},
   year         = {2026},
   publisher    = {PsyArXiv},
-  url          = {https://osf.io/preprints/psyarxiv/7bfpg_v1},
-  doi          = {10.31234/osf.io/7bfpg}
+  url          = {https://osf.io/preprints/psyarxiv/ecrdw_v1},
+  doi          = {10.31234/osf.io/ecrdw}
 }
 ```
 
